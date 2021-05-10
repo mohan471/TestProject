@@ -20,7 +20,7 @@ public class AmazonPageTest {
 	
 	@BeforeMethod
 	public void launchBrowser() {
-		System.setProperty("webdriver.chrome.driver","D:\\ChromeDriver\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\mohansai.chintana\\Downloads\\chromedriver_win32\\chromedriver.exe");
 		driver=new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
@@ -44,6 +44,14 @@ public class AmazonPageTest {
 	@AfterMethod
 	public void teardown() {
 		driver.quit();
+	}
+	
+	public static void main(String s[]) {
+		AmazonPageTest testobj=new AmazonPageTest();
+		testobj.launchBrowser();
+		testobj.searchProductAndGetDetails();
+		testobj.teardown();
+		
 	}
 
 }

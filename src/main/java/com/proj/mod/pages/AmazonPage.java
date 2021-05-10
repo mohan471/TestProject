@@ -39,6 +39,9 @@ public class AmazonPage {
 
 	@FindBy(id="add-to-cart-button")
 	private WebElement addtoCartbutton;
+	
+	@FindBy(id="hlb-view-cart-announce")
+	private WebElement addedtoCartbutton;
 
 
 	//	WebDriver driver;
@@ -134,10 +137,11 @@ public class AmazonPage {
 
 		}else {
 			addtoCartbutton.click();
+			wait.until(ExpectedConditions.visibilityOf(addedtoCartbutton));
 			String getcartincrementValue=addtoCart.getText();
 			int currentvalue=Integer.parseInt(getcartCurrentValue);
 			int incrementvalue=Integer.parseInt(getcartincrementValue);
-			if(currentvalue>incrementvalue) {
+			if(incrementvalue>currentvalue) {
 				cartvalue=true;
 			}
 		}
